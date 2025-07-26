@@ -1,0 +1,59 @@
+.logo{
+  text-decoration: none;
+  color: rgb(17, 17, 17);
+}
+.signin-box{
+    cursor: pointer;
+
+}
+.signin-container:hover .signin-dropdown {
+  display: block;
+
+}
+.buttonrounded {
+  border-radius: 3rem;
+  padding: 0.3rem 2rem;
+  height: auto;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+
+.icons{
+  font-size:1.6rem;
+  cursor: pointer
+}
+.dropdown-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100%;
+  z-index: 9999;
+  padding: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+}
+
+
+
+
+
+@media (min-width: 576px) {
+  .dropdown-container {
+    width: auto;
+    right: 0;
+    left: auto;
+    /* min-width: 22rem; */
+    max-width: 100vw;
+    border-radius: 12px;
+  }
+
+  .dropdown-container .btn {
+    width: auto;
+    margin-bottom: 0;
+    margin-right: 0.5rem;
+  }
+  
+}
