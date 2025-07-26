@@ -102,6 +102,7 @@ export default function Header({ onSignInClick, onSignUpClick }) {
           {/* Basket Icon */}
           <span
             onMouseEnter={() => setBasketHovered(true)}
+            onMouseLeave={()=>setBasketHovered(false)}
             onClick={() => navigate('/Cart')}
             style={{ cursor: 'pointer' }}
           >
