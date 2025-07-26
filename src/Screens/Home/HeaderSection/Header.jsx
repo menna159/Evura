@@ -52,7 +52,7 @@ export default function Header({ onSignInClick, onSignUpClick }) {
 
             onMouseLeave={() => {
               setFaceHovered(false);
-              setTimeout(() => setShowDropdown(false), 2000);
+              setTimeout(() => setShowDropdown(false), 1000);
             }}
             onClick={() => setShowDropdown(true)}
             style={{ cursor: "pointer" }}
