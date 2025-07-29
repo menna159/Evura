@@ -5,6 +5,7 @@
 h1{
   letter-spacing: 0.8rem;
   font-family:'Henny Penny';
+  font-weight: bold;
 }
 .signin-box{
     cursor: pointer;
