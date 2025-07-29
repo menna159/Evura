@@ -5,6 +5,7 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './AllProducts.css';
+import { useNavigate } from 'react-router-dom';
 
 const ChoosenForyou = () => {
   const ImagesSource = [
@@ -12,7 +13,7 @@ const ChoosenForyou = () => {
     '2.jpg', '3.jpg', '4.jpg', '1.jpg',
     '1.jpg', '2.jpg', '3.jpg', '4.jpg'
   ];
-
+ const navigate=useNavigate();
   return (
     <div className="container-fluid my-4 px-5 position-relative">
       <div className="d-flex justify-content-between align-items-center mb-3">
@@ -62,7 +63,7 @@ const ChoosenForyou = () => {
       >
         {ImagesSource.map((source, idx) => (
           <SwiperSlide key={idx}>
-            <CardwithDetails source={source} />
+            <CardwithDetails source={source} onClick={()=>navigate('/Product-details')}/>
           </SwiperSlide>
         ))}
       </Swiper>
