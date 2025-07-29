@@ -4,7 +4,7 @@
 }
 h1{
   letter-spacing: 0.8rem;
-  font-family:'Henny Penny', cursive;
+  font-family:'Henny Penny';
 }
 .signin-box{
     cursor: pointer;
