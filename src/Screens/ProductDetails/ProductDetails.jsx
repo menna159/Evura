@@ -1,28 +1,27 @@
 import React, { useState } from 'react';
 import { VscHeart, VscHeartFilled } from "react-icons/vsc";
 import { Carousel } from 'react-bootstrap';
-import './productDetails.css'
+import './productDetails.css';
+
 const ProductDetails = () => {
   const [heartHovered, setHeartHovered] = useState(false);
-  const images = [
-    "1.jpg",
-    "1.jpg",
-    "1.jpg"
-  ];
+  const [selected, setSelected] = useState('');
+
+  const images = ["1.jpg", "1.jpg", "1.jpg"];
+  const Colors = ['red', 'green', 'blue', 'brown','purple'];
 
   return (
     <div className="container my-5 overflow-hidden">
-      <div className="row g-5 align-items-start ">
+      <div className="row g-5 align-items-start">
         {/* Product Carousel */}
         <div className="col-md-5">
-          <Carousel style={{color:"black"}}>
+          <Carousel className="product-carousel">
             {images.map((src, index) => (
               <Carousel.Item key={index}>
                 <img
-                  className="d-block w-100 rounded"
+                  className="d-block w-100 rounded carousel-image"
                   src={src}
                   alt={`Slide ${index + 1}`}
-                  style={{ height: '400px', objectFit: 'cover' }}
                 />
               </Carousel.Item>
             ))}
@@ -41,53 +40,15 @@ const ProductDetails = () => {
 
           {/* Quantity Select + Add to Basket */}
           <div className="d-flex align-items-center mb-3">
-            <button
-              type="button"
-              className="btn"
-              style={{
-                backgroundColor: '#E50046',
-                borderTopLeftRadius: '2rem',
-                borderBottomLeftRadius: '2rem',
-                border: 0,
-                color: 'white',
-                padding: '0.1rem 1rem',
-                height: "3.7rem",
-                marginRight: "0.2rem",
-                fontSize:"1rem"
-              }}
-            >
-              <select
-                className="fw-bold"
-                style={{
-                  backgroundColor: '#E50046',
-                  border: "none",
-                  color: "white",
-                  
-                }}
-              >
+            <button type="button" className=" quantity-button">
+              <select className="quantity-select">
                 {[1, 2, 3, 4, 5].map((num, index) => (
-                  <option key={index} value={num} style={{ backgroundColor: "white", color: "black" }}>
-                    {num}
-                  </option>
+                  <option key={index} value={num} className='quantity-option'>{num}</option>
                 ))}
               </select>
             </button>
 
-            <button
-              type="button"
-              className="btn"
-              style={{
-                backgroundColor: '#E50046',
-                borderTopRightRadius: '2rem',
-                borderBottomRightRadius: "2rem",
-                border: 0,
-                color: 'white',
-                height: "3.7rem",
-                padding: '0.3rem 2rem',
-                minWidth: '220px',
-                marginRight: "0.2rem"
-              }}
-            >
+            <button type="button" className=" add-to-basket-button">
               <div className="d-flex flex-column align-items-center">
                 <span className="fw-bold">Add to Basket</span>
                 <small>Get it shipped</small>
@@ -97,10 +58,26 @@ const ProductDetails = () => {
             <span
               onMouseEnter={() => setHeartHovered(true)}
               onMouseLeave={() => setHeartHovered(false)}
-              style={{ cursor: 'pointer', fontSize: '1.8rem', marginLeft: '1rem' }}
+              className="wishlist-icon"
             >
               {heartHovered ? <VscHeartFilled color="#E50046" /> : <VscHeart />}
             </span>
+          </div>
+
+          {/* Color Selection */}
+          <div>
+            <strong className='mb-5'>Color :</strong>
+            <div className="color-options">
+              {Colors.map((color, index) => (
+                <div
+                  key={index}
+                  className={`color-box ${selected === color ? 'selected' : ''}`}
+                  style={{ backgroundColor: color }}
+                  onClick={() => setSelected(color)}
+                >
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

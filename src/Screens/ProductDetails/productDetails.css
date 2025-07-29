@@ -1,8 +1,89 @@
+.product-carousel .carousel-item img.carousel-image {
+  height: 400px;
+  object-fit: cover;
+}
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M4.854 1.146a.5.5 0 0 0-.708.708L6.293 4 4.146 6.146a.5.5 0 1 0 .708.708l2.5-2.5a.5.5 0 0 0 0-.708l-2.5-2.5z'/%3E%3C/svg%3E");
   background-size: 100% 100%;
 }
+
 .carousel-control-prev-icon {
   transform: rotate(180deg);
+}
+button{
+  background-color: #ff3a75;
+}
+/* Quantity button */
+.quantity-button {
+  background-color: #E50046;
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  border: 0;
+  color: white;
+  padding: 0.1rem 1rem;
+  height: 3.7rem;
+  margin-right: 0.2rem;
+  font-size: 1rem;
+}
+
+.quantity-select {
+  background-color: #E50046;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+.quantity-option{
+   background-color: white;
+  color: #E50046;
+
+}
+/* Add to basket button */
+.add-to-basket-button {
+  background-color: #E50046;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  border: 0;
+  color: white;
+  height: 3.7rem;
+  padding: 0.3rem 2rem;
+  min-width: 220px;
+  margin-right: 0.2rem;
+}
+
+/* Heart icon */
+.wishlist-icon {
+  cursor: pointer;
+  font-size: 1.8rem;
+  margin-left: 1rem;
+}
+
+/* Color selector */
+.color-options {
+
+  overflow-x:auto;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.color-box {
+  border: 4px solid rgb(227, 222, 222);
+  border-radius: 4rem;
+  width: 3rem;
+  padding: 0.5rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+  /* width: '1rem'; */
+  height: 3rem;
+}
+
+.color-box.selected {
+  border-color: rgba(12, 1, 1,0.7);
 }

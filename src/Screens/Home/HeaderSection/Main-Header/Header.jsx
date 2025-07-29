@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { VscHeart, VscHeartFilled } from "react-icons/vsc";
 import { LuShoppingBasket } from "react-icons/lu";
-import DropDownList from '../components/dropDown';
+import DropDownList from '../../components/dropDown';
 import { MdShoppingBasket, MdShoppingCart } from "react-icons/md";
 import { MdFace, MdFaceRetouchingNatural } from "react-icons/md";
 import './Header.css';
@@ -23,7 +23,7 @@ export default function Header({ onSignInClick, onSignUpClick }) {
         {/* Logo */}
         <div className="col-12 col-sm-4 text-center text-sm-start">
           <a href='/' className='logo text-decoration-none'>
-            <h1 className="m-0">EVURA</h1>
+            <h1 className="m-0 ">EVURA</h1>
           </a>
         </div>
 

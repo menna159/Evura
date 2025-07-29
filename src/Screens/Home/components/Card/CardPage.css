@@ -1,0 +1,28 @@
+.ImageContainer {
+  height: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  transition: transform 0.4s;
+}
+
+.Image {
+  width: 100%;
+  height: 17rem; /* or tweak this as needed */
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .Image {
+    height: 12rem;
+  }
+}
+.ImageContainer:hover{
+     transform: translateY(-5%);
+}

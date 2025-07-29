@@ -1,0 +1,38 @@
+/* Pickup.css */
+
+.pickup-container {
+  position: relative;
+}
+
+.pickup-swiper {
+  padding-bottom: 20px; 
+  padding-top:10px ;
+  /* overflow: visible; */
+}
+
+.custom-Pick-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  line-height: 38px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.pickup-prev {
+  left: 1.2rem;
+}
+h5{
+    font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.pickup-next {
+  right: 1.2rem;
+}

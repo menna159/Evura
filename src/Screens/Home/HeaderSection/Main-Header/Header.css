@@ -2,6 +2,10 @@
   text-decoration: none;
   color: rgb(17, 17, 17);
 }
+h1{
+  letter-spacing: 0.8rem;
+  font-family:'Henny Penny', cursive;
+}
 .signin-box{
     cursor: pointer;
 

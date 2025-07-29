@@ -1,0 +1,30 @@
+.category-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  max-width: 100%;
+  /* border-radius: 30px; */
+  border: none;
+}
+
+.category-item {
+  padding: 0.5rem 0.1rem;
+  font-family: 'Henny Penny', cursive;
+  font-size: 1rem;
+  color: #444;
+  text-align: start;
+  transition: all 0.3s ease-in-out;
+  /* box-shadow: 0 4px 5px rgba(0, 0, 0, 0.05); */
+}
+
+.category-item:hover {
+  background-color: #fceff9;
+  color: #b0235b;
+  transform: translateY(-3px);
+  border-color: #f3b4d2;
+  border-radius: 0.2rem;
+  cursor: pointer;
+   padding-left:1rem ;
+}

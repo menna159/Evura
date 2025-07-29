@@ -1,0 +1,108 @@
+import React, { useState } from 'react';
+import CategoryItems from '../../components/CategoryItem/CategoryItems';
+import './SecondHeader.css';
+
+export const SecondHeader = () => {
+  const [activeIndex, setActiveIndex] = useState(null); // Top category index
+  const [activeBrand, setActiveBrand] = useState(null); // Brand name
+
+  const HeaderElements = [
+    {
+      title: 'Makeup',
+      categories: [
+        { name: 'MAC', subCategory: ['Lips', 'Face', 'Eyes'] },
+        { name: 'TM', subCategory: ['Lips', 'Face', 'Eyes'] },
+        { name: 'Makeup Forever', subCategory: ['Lips', 'Face', 'Eyes'] }
+      ]
+    },
+    {
+      title: 'SkinCare',
+      categories: [
+        { name: 'Neutrogena' },
+        { name: 'The Ordinary' }
+      ]
+    },
+    {
+      title: 'Hair',
+      categories: [
+        { name: "L'Oreal" },
+        { name: 'Pantene' }
+      ]
+    },
+    {
+      title: 'Tools & Brushes',
+      categories: [
+        { name: 'Brush Set' },
+        { name: 'Blender' }
+      ]
+    },
+    {
+      title: 'Bath & Body',
+      categories: [
+        { name: 'Shower Gel' },
+        { name: 'Scrub' }
+      ]
+    },
+    {
+      title: 'Sale & Offers',
+      categories: [
+        { name: '50% Off' },
+        { name: 'Clearance' }
+      ]
+    }
+  ];
+
+  return (
+    <div className="second-header-wrapper mt-5">
+      <div className="second-header-bar">
+        {HeaderElements.map((element, index) => (
+          <div key={index} className="mainContainer">
+            <span
+              className="category-title"
+              onClick={() => {
+                setActiveIndex(activeIndex === index ? null : index);
+                setActiveBrand(null);
+              }}
+            >
+              {element.title}
+            </span>
+
+            {activeIndex === index && (
+              <div className="dropdown-wrapper">
+                {/* Brand List */}
+                <div className="categoryDropdown">
+                  {element.categories.map((cat, i) => (
+                    <div
+                      key={i}
+                      className={`brand-item ${activeBrand === cat.name ? 'active' : ''}`}
+                      onClick={() =>
+                        setActiveBrand(activeBrand === cat.name ? null : cat.name)
+                      }
+                    >
+                      {cat.name}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Subcategories */}
+                {activeBrand && (() => {
+                  const selectedBrand = element.categories.find(
+                    (cat) => cat.name === activeBrand
+                  );
+                  if (selectedBrand?.subCategory) {
+                    return (
+                      <div className="subCategoryDropdown">
+                        <CategoryItems Items={selectedBrand.subCategory} />
+                      </div>
+                    );
+                  }
+                  return null;
+                })()}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
