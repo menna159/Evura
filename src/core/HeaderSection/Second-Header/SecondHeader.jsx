@@ -5,10 +5,11 @@ import './SecondHeader.css';
 export const SecondHeader = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [activeBrand, setActiveBrand] = useState(null);
+  const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
   const dropdownRef = useRef(null);
-
-  const HeaderElements = [
-    {
+  const titleRefs = useRef([]);
+  
+  const HeaderElements = [{
       title: 'Makeup',
       categories: [
         { name: 'MAC', subCategory: ['Lips', 'Face', 'Eyes'] },
@@ -50,8 +51,8 @@ export const SecondHeader = () => {
         { name: '50% Off' },
         { name: 'Clearance' }
       ]
-    }
-  ];
+    }];
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -66,55 +67,66 @@ export const SecondHeader = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  const handleTitleClick = (index) => {
+    const titleEl = titleRefs.current[index];
+    if (titleEl) {
+      const rect = titleEl.getBoundingClientRect();
+      setDropdownPosition({ top: rect.bottom + window.scrollY, left: rect.left + window.scrollX });
+    }
+
+    setActiveIndex((prev) => (prev === index ? null : index));
+    setActiveBrand(null);
+  };
+
   return (
-    <div className="second-header-wrapper mt-5">
-      <div className="second-header-bar" ref={dropdownRef}>
-        {HeaderElements.map((element, index) => (
-          <div key={index} className="mainContainer">
-            <span
-              className="category-title"
-              onClick={() => {
-                setActiveIndex(activeIndex === index ? null : index);
-                setActiveBrand(null);
-              }}
-            >
-              {element.title}
-            </span>
+    <>
+     <div className="second-header-wrapper mt-5">
+  <div className="second-header-bar">
+    {HeaderElements.map((element, index) => (
+      <div key={index} className="mainContainer">
+        <span
+          className={`category-title ${activeIndex=== index?'active':""}`}
+          onClick={() => {
+            setActiveIndex((prev) => (prev === index ? null : index));
+            setActiveBrand(null);
+          }}
+        >
+          {element.title}
+        </span>
 
-            {activeIndex === index && (
-              <div className="dropdown-wrapper">
-                <div className="categoryDropdown">
-                  {element.categories.map((cat, i) => (
-                    <div
-                      key={i}
-                      className={`brand-item ${activeBrand === cat.name ? 'active' : ''}`}
-                      onClick={() =>
-                        setActiveBrand(activeBrand === cat.name ? null : cat.name)
-                      }
-                    >
-                      {cat.name}
-                    </div>
-                  ))}
-                </div>
-
-                {activeBrand && (() => {
-                  const selectedBrand = element.categories.find(
-                    (cat) => cat.name === activeBrand
-                  );
-                  if (selectedBrand?.subCategory) {
-                    return (
-                      <div className="subCategoryDropdown">
-                        <CategoryItems Items={selectedBrand.subCategory} />
-                      </div>
-                    );
+        {activeIndex === index && (
+          <div className="dropdown-wrapper">
+            <div className="categoryDropdown">
+              {element.categories.map((cat, i) => (
+                <div
+                  key={i}
+                  className={`brand-item ${activeBrand === cat.name ? 'active' : ''}`}
+                  onClick={() =>
+                    setActiveBrand((prev) => (prev === cat.name ? null : cat.name))
                   }
-                  return null;
-                })()}
-              </div>
-            )}
+                >
+                  {cat.name}
+                </div>
+              ))}
+            </div>
+
+            {activeBrand &&
+              element.categories.find((cat) => cat.name === activeBrand)?.subCategory && (
+                <div className="subCategoryDropdown">
+                  <CategoryItems
+                    Items={
+                      element.categories.find((cat) => cat.name === activeBrand).subCategory
+                    }
+                  />
+                </div>
+              )}
           </div>
-        ))}
+        )}
       </div>
-    </div>
+    ))}
+  </div>
+</div>
+
+    </>
   );
 };
