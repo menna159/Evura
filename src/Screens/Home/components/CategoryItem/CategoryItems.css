@@ -10,13 +10,14 @@
 }
 
 .category-item {
-  padding: 0.5rem 0.1rem;
-  font-family: 'Henny Penny', cursive;
+ padding: 0.5rem 0.1rem;
+  font-family: 'Henny Penny';
+  font-weight: 800;
   font-size: 1rem;
   color: #444;
   text-align: start;
   transition: all 0.3s ease-in-out;
-  /* box-shadow: 0 4px 5px rgba(0, 0, 0, 0.05); */
+  cursor: pointer;
 }
 
 .category-item:hover {

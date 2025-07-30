@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { VscHeart, VscHeartFilled } from "react-icons/vsc";
 import { LuShoppingBasket } from "react-icons/lu";
-import DropDownList from '../../components/dropDown';
+import DropDownList from '../../../Screens/Home/components/dropDown';
 import { MdShoppingBasket, MdShoppingCart } from "react-icons/md";
 import { MdFace, MdFaceRetouchingNatural } from "react-icons/md";
 import './Header.css';

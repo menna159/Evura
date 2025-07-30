@@ -1,0 +1,183 @@
+/* General Reset
+html, body {
+  overflow-x: visible;
+  overflow-y: auto;
+} */
+
+/* Wrapper Around Header */
+.second-header-wrapper {
+  z-index: 8888 !important;
+  position: relative;
+  overflow: visible;
+}
+
+/* The Category Bar */
+.second-header-bar {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+  position: relative;
+  background-color: #111;
+  color: white;
+  overflow: visible;
+  z-index: 10;
+  justify-content: space-around;
+}
+
+/* Each Category Item */
+.mainContainer {
+  position: relative;
+  text-align: center;
+  padding: 0 1rem;
+  flex-shrink: 0;
+}
+
+.category-title {
+  cursor: pointer;
+  color: white;
+  font-family: 'Henny Penny';
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 20;
+}
+
+.category-title:hover {
+  color: #ed769a;
+}
+
+/* The Dropdown */
+.dropdown-wrapper {
+  position: absolute;
+  top: calc(100% + 0.4rem); /* Place dropdown below each title */
+  left: 7rem;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  z-index: 9999;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  flex-direction: row;
+  min-width: 260px;
+  white-space: nowrap;
+}
+
+/* Category and Sub Category Sections */
+.categoryDropdown,
+.subCategoryDropdown {
+  background: white;
+  border-radius: 1rem;
+  min-width: 180px;
+  padding: 0.5rem 0;
+}
+
+/* Each Brand Item */
+.brand-item {
+  padding: 0.5rem 0.1rem;
+  font-family: 'Henny Penny';
+  font-weight: 800;
+  font-size: 1rem;
+  color: #444;
+  text-align: start;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.brand-item:hover,
+.brand-item.active {
+  background-color: #fceff9;
+  color: #b0235b;
+  transform: translateY(-3px);
+  border-color: #f3b4d2;
+  border-radius: 0.2rem;
+  padding-left: 1rem;
+}
+
+/* Subcategory Styles */
+.subCategoryDropdown {
+  min-width: 160px;
+  padding-left: 0.5rem;
+  border-left: 1px solid #eee;
+}
+
+/* ======= Mobile Styles ======= */
+@media (max-width: 768px) {
+  .second-header-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    padding: 1rem 1rem;
+    scrollbar-width: none;
+  }
+
+  .second-header-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mainContainer {
+    padding: 0 0.5rem;
+    flex-shrink: 0;
+    position: relative;
+    overflow: visible !important;
+  }
+
+  .category-title {
+    font-size: 0.9rem;
+  }
+
+  .dropdown-wrapper {
+      position: fixed;
+    top: 17rem;
+    left: 9rem;
+    width: 70%;
+    padding-left: 10rem;
+    min-width: 200px;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 100000;
+    padding: 1rem;
+    margin-left: 3rem;
+  }
+
+  .categoryDropdown,
+  .subCategoryDropdown {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  .brand-item {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .brand-item:hover,
+  .brand-item.active {
+    transform: none;
+    padding-left: 0.8rem;
+
+  }
+
+  .subCategoryDropdown {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid #eee;
+    margin-top: 0.5rem;
+  }
+
+  .dropdown-wrapper::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .dropdown-wrapper::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+  }
+}

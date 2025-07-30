@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import CategoryItems from '../../components/CategoryItem/CategoryItems';
+import React, { useState, useRef, useEffect } from 'react';
+import CategoryItems from '../../../Screens/Home/components/CategoryItem/CategoryItems';
 import './SecondHeader.css';
 
 export const SecondHeader = () => {
-  const [activeIndex, setActiveIndex] = useState(null); // Top category index
-  const [activeBrand, setActiveBrand] = useState(null); // Brand name
+  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeBrand, setActiveBrand] = useState(null);
+  const dropdownRef = useRef(null);
 
   const HeaderElements = [
     {
@@ -51,10 +52,23 @@ export const SecondHeader = () => {
       ]
     }
   ];
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target)
+      ) {
+        setActiveIndex(null);
+        setActiveBrand(null);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <div className="second-header-wrapper mt-5">
-      <div className="second-header-bar">
+      <div className="second-header-bar" ref={dropdownRef}>
         {HeaderElements.map((element, index) => (
           <div key={index} className="mainContainer">
             <span
@@ -69,7 +83,6 @@ export const SecondHeader = () => {
 
             {activeIndex === index && (
               <div className="dropdown-wrapper">
-                {/* Brand List */}
                 <div className="categoryDropdown">
                   {element.categories.map((cat, i) => (
                     <div
@@ -84,7 +97,6 @@ export const SecondHeader = () => {
                   ))}
                 </div>
 
-                {/* Subcategories */}
                 {activeBrand && (() => {
                   const selectedBrand = element.categories.find(
                     (cat) => cat.name === activeBrand
