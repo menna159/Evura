@@ -17,11 +17,11 @@ const CardwithDetails = ({ source, onClick }) => {
       className="card-container"
       onClick={onClick}
     >
-      <img
+      <div className='image-wrapper'><img
         src={source}
-        className="card-img-top card-image"
+        className=" card-image"
         alt="Cosmetic Product"
-      />
+      /></div>
       <div className="card-body p-3">
         <div className="text-section">
           <h5 className="card-title">Card title</h5>

@@ -5,9 +5,9 @@ import { Navigation } from 'swiper/modules';
 import { Card } from '../Card/CardPage';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import './Pickup.css';
+import './BestSeller.css';
 
-const Pickup = () => {
+const BestSeller = () => {
   const ImagesSource = [
     '1.jpg', '2.jpg', '3.jpg', '4.jpg',
     '2.jpg', '3.jpg', '4.jpg', '1.jpg',
@@ -38,30 +38,30 @@ const Pickup = () => {
 breakpoints={{
      0: {
     slidesPerView: 3,
-    spaceBetween: 10,
+    spaceBetween: 7,
     slidesPerGroup: 3,
 
   },
   480: {
     slidesPerView: 3,
-    spaceBetween: 12,
+    spaceBetween: 9,
     slidesPerGroup: 3,
 
   },
   768: {
     slidesPerView: 3,
-    spaceBetween: 15,
+    spaceBetween: 11,
     slidesPerGroup: 3,
 
   },
   992: {
     slidesPerView: 3.5,
-    spaceBetween: 20,
+    spaceBetween: 13,
     slidesPerGroup: 3,
   },
   1200: {
     slidesPerView: 4,
-    spaceBetween: 24,
+    spaceBetween: 15,
     slidesPerGroup: 4,
   }
   }}
@@ -80,4 +80,4 @@ breakpoints={{
   );
 };
 
-export default Pickup;
+export default BestSeller;

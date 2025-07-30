@@ -19,7 +19,7 @@ const ProductDetails = () => {
             {images.map((src, index) => (
               <Carousel.Item key={index}>
                 <img
-                  className="d-block w-100 rounded carousel-image"
+                  className="d-block w-100  carousel-image"
                   src={src}
                   alt={`Slide ${index + 1}`}
                 />
@@ -72,9 +72,9 @@ const ProductDetails = () => {
                 <div
                   key={index}
                   className={`color-box ${selected === color ? 'selected' : ''}`}
-                  style={{ backgroundColor: color }}
                   onClick={() => setSelected(color)}
                 >
+                  <img src='1.jpg' alt="" className='color-Image'/>
                 </div>
               ))}
             </div>

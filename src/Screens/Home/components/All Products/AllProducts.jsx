@@ -7,7 +7,7 @@ import 'swiper/css/navigation';
 import './AllProducts.css';
 import { useNavigate } from 'react-router-dom';
 
-const ChoosenForyou = () => {
+const AllProducts = () => {
   const ImagesSource = [
     '1.jpg', '2.jpg', '3.jpg', '4.jpg',
     '2.jpg', '3.jpg', '4.jpg', '1.jpg',
@@ -76,4 +76,4 @@ const ChoosenForyou = () => {
   );
 };
 
-export default ChoosenForyou;
+export default AllProducts;
