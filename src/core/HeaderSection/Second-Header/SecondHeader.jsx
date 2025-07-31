@@ -68,14 +68,8 @@ export const SecondHeader = () => {
   }, []);
 
   const handleTitleClick = (index) => {
-    const titleEl = titleRefs.current[index];
-    if (titleEl) {
-      const rect = titleEl.getBoundingClientRect();
-      setDropdownPosition({ top: rect.bottom + window.scrollY, left: rect.left + window.scrollX });
-    }
-
-    setActiveIndex((prev) => (prev === index ? null : index));
-    setActiveBrand(null);
+  setActiveIndex((prev) => (prev === index ? null : index));
+  setActiveBrand(null);
   };
 
   return (
@@ -83,19 +77,19 @@ export const SecondHeader = () => {
      <div className="second-header-wrapper mt-5">
   <div className="second-header-bar">
     {HeaderElements.map((element, index) => (
-      <div key={index} className="mainContainer">
-        <span
+      <div key={index} className="mainContainer">  <span
+        ref={(el) => (titleRefs.current[index] = el)}
           className={`category-title ${activeIndex=== index?'active':""}`}
-          onClick={() => {
-            setActiveIndex((prev) => (prev === index ? null : index));
-            setActiveBrand(null);
-          }}
+         onClick={() => handleTitleClick(index)}
+
         >
           {element.title}
         </span>
-
         {activeIndex === index && (
-          <div className="dropdown-wrapper">
+  <div
+    ref={dropdownRef}
+    className="dropdown-wrapper"
+  >
             <div className="categoryDropdown">
               {element.categories.map((cat, i) => (
                 <div
