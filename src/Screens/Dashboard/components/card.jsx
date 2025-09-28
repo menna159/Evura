@@ -1,17 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-function Card({title,number,color}) {
+function Card({ title, number, color }) {
   return (
-     <div className="d-flex flex-column" style={{
-            borderRaduis:"1rem",
-            width:"25%",
-            backgroundColor:color,
-            padding:"0.5rem"
-         }}>
-            <h5 style={{alignSelf:"start"}}>{title}</h5>
-            <h5 style={{alignSelf:"end"}}>{number}</h5>
-         </div>
-  )
+    <div
+      className="p-4 rounded shadow-sm d-flex flex-column"
+      style={{ backgroundColor: color, color: '#fff', minHeight: '150px' }}
+    >
+      <h5>{title}</h5>
+      <h2 className='align-self-end'>{number}</h2>
+    </div>
+  );
 }
 
-export default Card
+export default Card;

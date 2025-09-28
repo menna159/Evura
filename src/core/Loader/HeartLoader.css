@@ -1,0 +1,55 @@
+.heart-loader-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  z-index: 20;
+  background:rgba(246, 244, 244, 0.2) ;
+}
+
+.heart {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: #e11d48; /* rose-600 */
+  transform: rotate(-45deg);
+  animation: pulse 1s infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: #e11d48;
+  border-radius: 50%;
+}
+
+/* adjust circle offsets so they blend perfectly */
+.heart::before {
+  top: -20px;   /* half of height */
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: 20px;  /* half of width */
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+    transform: rotate(-45deg) scale(1);
+    background: #e11d48;
+  }
+  50% {
+    transform: rotate(-45deg) scale(1.2);
+    background: #be123c; /* darker shade on beat */
+  }
+  100% {
+    transform: rotate(-45deg) scale(1);
+    background: #e11d48;
+  }
+}

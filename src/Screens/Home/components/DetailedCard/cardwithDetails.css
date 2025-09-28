@@ -1,16 +1,20 @@
 .card-container {
   width: 100%;
-  max-width: 45rem;
+  min-width: 12rem ;
   height: 100%;
   box-shadow: none;
   border-radius: 12px;
-  cursor: pointer;
+  cursor: pointer !important;
   display: flex;
   flex-direction: column;
   padding: 0;
-  z-index: 1;
+  z-index: 2;
+  position: relative;
   background: transparent;
   transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+div.card-container {
+  cursor: pointer !important;
 }
 
 .image-wrapper {
@@ -37,6 +41,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 12px;
+  max-width: 50rem ;
   flex-grow: 1;
   background-color: transparent;
 }
@@ -46,7 +51,10 @@
   font-weight: 600;
   margin-bottom: 0.4rem;
 }
+.price{
+    color: #ff3a75 !important;
 
+}
 .card-text {
   font-size: 0.95rem;
   color: #555;
@@ -54,10 +62,46 @@
 }
 
 .card-container:hover {
-  z-index: 10;
+  z-index: 4;
   transform: translateY(-3%);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
+
+
+.skeleton {
+  background: linear-gradient(90deg, #e0e0e0 25%, #f8f8f8 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+.skeleton-img {
+  height: 200px;   /* match product image height */
+  width: 100%;
+  border-radius: 10px;
+}
+
+.skeleton-text {
+  height: 14px;
+  border-radius: 4px;
+}
+
+.skeleton-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+
 
 /* Mobile Responsive */
 @media (max-width: 768px) {

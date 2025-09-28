@@ -1,0 +1,52 @@
+.actionCol {
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.actionCell {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Update button (blue-ish style) */
+.btn-warning {
+  background-color: rgba(186, 209, 247, 0.993);
+  color: #0d2a5e;
+  transition: all 0.3s ease;
+}
+
+.btn-warning:hover {
+  background-color: rgba(106, 144, 204, 0.993);
+  color: white;
+}
+
+/* Delete button (red style) */
+.btn-danger {
+  background-color: #f56565; /* softer red */
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #c53030;
+  color: white;
+}
+
+/* Shared button styles */
+.btn-warning,
+.btn-danger {
+  border: 0;
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-warning:hover{
+    background-color: rgba(106, 144, 204, 0.993);
+    color: white;
+}

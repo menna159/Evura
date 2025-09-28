@@ -1,0 +1,7 @@
+.modal-backdrop {
+  z-index: 1050 !important; /* default bootstrap */
+}
+
+.modal {
+  z-index: 10000 !important; /* make sure it's above dropdown */
+}

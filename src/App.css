@@ -1,10 +1,17 @@
-
+/* body{
+  overflow-x: hidden;
+} */
 .flex-grow-1 {
   position: relative;
   z-index: 1;
   overflow: visible !important;
 }
-
-
+/* body, p, span, div {
+   user-select: none; 
+  cursor: default;
+} */
+/* button, a, .brand-item, .category-title ,.Image,.card-container{
+  cursor: pointer;
+} */
 
 

@@ -1,78 +1,69 @@
-import React, { useEffect, useState } from 'react';
-import './signIn.css';
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import "./signIn.css";
+import { useTranslation } from "react-i18next";
+import SignInForm from "./components/signinForm";
+import SignUpForm2 from "./components/signUpForm2";
+import SignUpForm1 from "./components/signUpForm1";
+import i18n from "../../../../i18n";
 
-const SignInDialog = ({ visible, onClose,isCreating: initialIsCreating }) => {
+const SignInDialog = ({ visible, onClose, isCreating: initialIsCreating }) => {
   const [isCreating, setIsCreating] = useState(initialIsCreating);
   const [continueButt, setContinueButt] = useState(false);
-useEffect(() => {
-  setIsCreating(initialIsCreating);
-  setContinueButt(false);
-}, [initialIsCreating, visible]);
+  const { t } = useTranslation();
 
+  // Initialize react-hook-form here
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+  
+   useEffect(() => {
+    setIsCreating(initialIsCreating);   
+  }, [initialIsCreating]);
+  // Reset when modal closes
+  useEffect(() => {
+    if (!visible) {
+      reset();
+      setContinueButt(false);
+    }
+  }, [initialIsCreating, visible, reset]);
 
   if (!visible) return null;
 
   return (
     <div className="signinDialog">
-      <h4 className="mb-3">{isCreating ? 'Create Account' : 'Sign In'}</h4>
+    <div className="row justify-content-center"> <h4 className="mb-3 text-center">{isCreating ? t("Create Account") : t("sign In")}</h4></div> 
 
       {!isCreating ? (
-        <>
-          <p>Sign in or create an account to enjoy FREE standard shipping on all orders</p>
-          <input type="email" className="form-control mb-2" placeholder="Email" />
-          <input type="password" className="form-control mb-3" placeholder="Password" />
-          <p>By clicking “Sign In”, you agree to the TERMS OF USE, and EVURA Privacy Policy</p>
-          <button className="btn btn-dark  py-2 buttonrounded mb-3">Sign In</button>
-          <hr />
-          <p className="fw-bold">New to EVURA?</p>
-          <button
-            className="btn btn-outline-dark py-2 buttonrounded"
-            onClick={() => setIsCreating(true)}
-          >
-            Create Account
-          </button>
-        </>
+        <SignInForm
+          onClose={onClose}
+          setIsCreating={setIsCreating}
+          register={register}
+          errors={errors}
+          handleSubmit={handleSubmit}
+        />
       ) : !continueButt ? (
-        <>
-          <h5>Beauty Insider</h5>
-          <p>Join the Beauty Insider loyalty program. Earn points, get FREE standard shipping, redeem rewards, and more.</p>
-          <input type="email" className="form-control mb-2" placeholder="Email" />
-          <button
-            className="btn btn-dark  py-2 buttonrounded mb-3"
-            onClick={() => setContinueButt(true)}
-          >
-            Continue
-          </button>
-          <hr />
-          <p className="mb-3 fw-bold" style={{ fontSize: '0.9rem' }}>
-            Already have an account
-          </p>
-          <button
-            className="btn btn-outline-secondary py-2 buttonrounded"
-            onClick={() => setIsCreating(false)}
-          >
-            Sign In
-          </button>
-        </>
+        <SignUpForm1
+          setIsCreating={setIsCreating} 
+          setContinueButt={setContinueButt}
+          register={register}
+          errors={errors}
+          handleSubmit={handleSubmit}
+        />
       ) : (
-        <>
-          <h5>Beauty Insider</h5>
-          <p>Join the Beauty Insider loyalty program. Earn points, get FREE standard shipping, redeem rewards, and more.</p>
-          <div className="d-flex flex-row gap-2">
-            <input type="text" className="form-control mb-2" placeholder="First Name" />
-            <input type="text" className="form-control mb-2" placeholder="Last Name" />
-          </div>
-          <input type="email" className="form-control mb-2" placeholder="Email Address" />
-          <input type="password" className="form-control mb-2" placeholder="Password (6 to 12 characters)" />
-          <input type="tel" className="form-control mb-2" placeholder="Phone Number" />
-          <button className="btn btn-dark w-100 py-2 buttonrounded mb-3">
-            Join Now
-          </button>
-        </>
+        <SignUpForm2
+          register={register}
+          errors={errors}
+          handleSubmit={handleSubmit}
+          onClose={onClose}
+        />
       )}
 
       <button
-        className="btn-close position-absolute top-0 end-0 m-3"
+       className={`btn-close position-absolute top-0 m-3 ${i18n.language === "en" ? "end-0" : "start-0"}`}
         onClick={onClose}
       ></button>
     </div>

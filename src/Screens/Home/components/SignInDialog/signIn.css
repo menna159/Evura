@@ -38,7 +38,6 @@
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  /* left: auto; */
   z-index: 9999 !important;
   width: 100%;
   min-width: 350px;     
@@ -50,10 +49,16 @@
   border-radius: 12px;
   overflow: auto;         
   max-height: 65vh;  
-  left: 50%;
-  transform: translateX(-45%);
 }
-
+[dir="ltr"] .signin-dropdown{
+  transform: translateX(50%);
+}
+[dir="rtl"] .signin-dropdown {
+  right: auto;       
+  left: 0; 
+    transform: translateX(-50%);
+         
+}
 .signin-dropdown .btn {
   width: 100%;
   margin-bottom: 0.5rem;

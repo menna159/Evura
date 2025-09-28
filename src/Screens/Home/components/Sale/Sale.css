@@ -1,0 +1,99 @@
+/* Pickup.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
+.sale-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem; /* space between line and text */
+  margin-bottom: 1.5rem;
+}
+
+.sale-title-line {
+  flex: 1;
+  height: 2px;
+  background-color: #952828;
+  max-width: 80px; /* prevent overly long lines on big screens */
+}
+
+.sale-title {
+  background-color: #952828;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px; /* pill shape */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  margin: 0;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+
+.pickup-container {
+  position: relative;
+}
+
+.pickup-swiper {
+  padding-bottom: 20px; 
+  padding-top:10px ;
+  /* overflow: visible; */
+}
+
+.custom-Pick-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  line-height: 38px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* LTR arrow symbols */
+[dir="ltr"] .pickup-prev::before {
+  content: "‹";
+}
+[dir="ltr"] .pickup-next::before {
+  content: "›";
+}
+
+/* RTL arrow symbols (swapped) */
+[dir="rtl"] .pickup-prev::before {
+  content: "›";
+}
+[dir="rtl"] .pickup-next::before {
+  content: "‹";
+}
+
+/* Positioning */
+.pickup-prev { left: 1.2rem; }
+.pickup-next { right: 1.2rem; }
+
+h5{
+    font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.pagination-sale-btn {
+  border-radius: 10px;
+  padding: 6px 16px;
+  font-weight: 500;
+  transition: 0.3s;
+  background-color:white;
+  color:rgb(69, 68, 68);
+}
+
+.pagination-sale-btn:hover {
+  background: rgba(110, 4, 4,0.9);
+  color: #fff;
+}
+

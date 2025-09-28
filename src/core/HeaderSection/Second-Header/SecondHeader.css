@@ -99,7 +99,16 @@
   padding-left: 0.5rem;
   border-left: 1px solid #eee;
 }
+.all-products {
+  font-weight: 500;
+  color: #b0235b;
+}
 
+.dropdown-divider {
+  height: 1px;
+  background: #b0235b;
+  margin: 6px 0;
+}
 /* ======= Mobile Styles ======= */
 /* ======= Mobile Styles ======= */
 @media (max-width: 768px) {
